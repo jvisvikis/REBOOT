@@ -30,8 +30,10 @@ public class Vision : MonoBehaviour
         int layers = Physics.DefaultRaycastLayers - 64;
         if (Physics.Raycast(visionOrigin.position, dir,  out hit, raycastDist, layers))
         {
-            Debug.DrawRay(visionOrigin.position, dir * raycastDist, Color.yellow);
-            Debug.Log("hit " + hit.collider.gameObject.name);
+            if (hit.collider.gameObject.layer == 3) {
+                Debug.DrawRay(visionOrigin.position, dir * raycastDist, Color.yellow);
+                Debug.Log("hit " + hit.collider.gameObject.layer);
+            }
         }
     }
 }
