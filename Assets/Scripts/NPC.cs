@@ -11,6 +11,9 @@ public class NPC : MonoBehaviour
     private static string sad = ":(";
     private static string angry = ">:|";
 
+    private Vector3 homeLoc;
+    public ComputerState computer;
+
     // mood is a value representing the npc status 
     // 0 is neural, 
     // 100 is happy
@@ -24,11 +27,12 @@ public class NPC : MonoBehaviour
     void Start()
     {
         image.SetActive(false);
+        homeLoc = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (computer.stat)
     }
 }
