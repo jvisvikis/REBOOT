@@ -5,15 +5,25 @@ using UnityEngine;
 public class Reboot : MonoBehaviour
 {
     public GameObject screenPanel;
+    private ComputerState computer;
     // Start is called before the first frame update
     void Start()
     {
-        
+        computer = GetComponent<ComputerState>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(computer.needsReboot && Input.GetKeyDown(KeyCode.E))
+        {
+            StartRebootSequence();
+        }
     }
+
+    void StartRebootSequence()
+    {
+        screenPanel.SetActive(true);
+    }
+
 }
