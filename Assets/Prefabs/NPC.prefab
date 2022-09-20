@@ -145,7 +145,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3966220789702756816}
   - component: {fileID: 3734297615625955349}
-  - component: {fileID: 3684593829751164326}
+  - component: {fileID: 2323107973875161329}
+  - component: {fileID: 6358974217212047381}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -187,7 +188,29 @@ MonoBehaviour:
   mood: 0
   text: {fileID: 6961499606476268740}
   image: {fileID: 6276483469902146194}
---- !u!54 &3684593829751164326
+--- !u!195 &2323107973875161329
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354680413707720138}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 1
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!54 &6358974217212047381
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -201,7 +224,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1 &418742931315004814
 GameObject:
@@ -778,6 +801,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66db3ba637e768146bbc78dc285c3179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visionOrigin: {fileID: 3946236142050387125}
+  raycastDist: 20
+  nma: {fileID: 0}
 --- !u!1 &5873626824051964470
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,7 +817,7 @@ GameObject:
   - component: {fileID: 454331614388849986}
   - component: {fileID: 1289109884500435918}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
