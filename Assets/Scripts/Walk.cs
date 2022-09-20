@@ -8,6 +8,7 @@ public class Walk : MonoBehaviour
 
     float x, y;
     Rigidbody rb;
+    bool rebooting;
 
 
     public float maxSpeed;
@@ -20,8 +21,9 @@ public class Walk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Vector3 y = transform.forward*Input.GetAxis(Axis.VERTICAL)*maxSpeed*Time.deltaTime;
+        if(!rebooting)
+        {
+            Vector3 y = transform.forward*Input.GetAxis(Axis.VERTICAL)*maxSpeed*Time.deltaTime;
         Vector3 x = transform.right*Input.GetAxis(Axis.HORIZONTAL)*maxSpeed*Time.deltaTime;
         // Debug.Log(Input.GetAxis(Axis.VERTICAL) + " " + Input.GetAxis(Axis.VERTICAL));
 
@@ -32,7 +34,11 @@ public class Walk : MonoBehaviour
         
         // rb.MovePosition(transform.position + v);
         rb.MovePosition(rb.position + v);
+        }   
+    }
 
-
+    public void SetRebooting(bool state)
+    {
+        rebooting = state;
     }
 }
