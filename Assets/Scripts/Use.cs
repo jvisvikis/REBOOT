@@ -18,7 +18,7 @@ public class Use : MonoBehaviour
             {
                 Interactable inter = hit.collider.gameObject.GetComponent<Interactable>();
                 if (inter != null) {
-                    Debug.Log("get an interactable");
+                    inter.behaviour();
                 }
             }
         }
