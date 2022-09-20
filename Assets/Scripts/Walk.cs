@@ -32,7 +32,7 @@ public class Walk : MonoBehaviour
         
         // rb.MovePosition(transform.position + v);
         rb.MovePosition(rb.position + v);
-    
+
 
     }
 }

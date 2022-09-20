@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Reboot : MonoBehaviour
+public class Reboot : Interactable 
 {
     public GameObject screenPanel;
     private ComputerState computer;
@@ -13,17 +13,21 @@ public class Reboot : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if(computer.needsReboot && Input.GetKeyDown(KeyCode.E))
-        {
-            StartRebootSequence();
-        }
-    }
+    // void Update()
+    // {
+    //     if(computer.needsReboot && Input.GetKeyDown(KeyCode.E))
+    //     {
+    //         StartRebootSequence();
+    //     }
+    // }
 
     void StartRebootSequence()
     {
         screenPanel.SetActive(true);
+    }
+
+    public override void behaviour(){
+
     }
 
 }
