@@ -23,7 +23,7 @@ public class Walk : MonoBehaviour
 
         Vector3 y = transform.forward*Input.GetAxis(Axis.VERTICAL)*maxSpeed*Time.deltaTime;
         Vector3 x = transform.right*Input.GetAxis(Axis.HORIZONTAL)*maxSpeed*Time.deltaTime;
-        Debug.Log(Input.GetAxis(Axis.VERTICAL) + " " + Input.GetAxis(Axis.VERTICAL));
+        // Debug.Log(Input.GetAxis(Axis.VERTICAL) + " " + Input.GetAxis(Axis.VERTICAL));
 
         // Vector3 v = new Vector3(x, 0, y);
         Vector3 v = x + y;

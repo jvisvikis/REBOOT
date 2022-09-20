@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3150622453304446725}
   - component: {fileID: 3150622453304446724}
   - component: {fileID: 3150622453304446727}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3150622453995415414}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CameraHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 3150622454319799426}
   - component: {fileID: 3150622454319799427}
   - component: {fileID: 3150622454319799425}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bean
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 3150622454333624509}
   - component: {fileID: 3150622454333624506}
   - component: {fileID: 3150622454333624507}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
