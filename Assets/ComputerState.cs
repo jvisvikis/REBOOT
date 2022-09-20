@@ -6,9 +6,8 @@ using TMPro;
 
 public class ComputerState : Interactable
 {
-    public bool needsReboot;
-    public bool broken;
-
+    
+    public PCState state = PCState.Working;
     private GameObject screenPanel;
     private Text passcodeTXT;
     private TMP_InputField iField;
@@ -26,10 +25,7 @@ public class ComputerState : Interactable
     // Update is called once per frame
     void Update()
     {
-        if(rebooting && Input.GetKeyDown(KeyCode.Return))
-        {
-            EndRebootSequence();
-        }
+        
     }
 
     public void StartRebootSequence()
@@ -69,4 +65,10 @@ public class ComputerState : Interactable
         StartRebootSequence();
     }
 
+}
+
+public enum PCState{
+        Working,
+        Malfunc,
+        Broken
 }
