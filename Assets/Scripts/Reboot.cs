@@ -23,7 +23,7 @@ public class Reboot : Interactable
 
     void StartRebootSequence()
     {
-        screenPanel.SetActive(true);
+        // screenPanel.SetActive(true);
     }
 
     public override void behaviour(){
