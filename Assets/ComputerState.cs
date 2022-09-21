@@ -26,16 +26,15 @@ public class ComputerState : Interactable
     // Start is called before the first frame update
     void Start()
     {
-        state = PCState.Working;
         iField = UIManager.manager.iField;
         passcodeTXT = UIManager.manager.passcodeTXT;
         passcode = "";
         malFuncSFX = GetComponent<AudioSource>();
         for(int i = 0; i<8; i++)
         {
-           passcode += Random.Range(0,10);
+           passcode += Random.Range(0,10).ToString();
         }
-        Debug.Log($"/{passcode}/");
+        // Debug.Log($"/{passcode}/");
         UIManager.manager.MalfuncSubscribe(this);
        
     }

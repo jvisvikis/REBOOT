@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     private List<ComputerState> comps;
 
     public List<AudioClip> backgroundMusic;
+    public GameObject use;
 
     // Start is called before the first frame update
     void Awake()
@@ -45,14 +46,15 @@ public class UIManager : MonoBehaviour
         comps.Add(c);
     }
 
-    public float breakTime = 20;
+    public float breakTime = 10;
     private float timer = 5;
     public float breakDivisor = 1.2f;
     private void MalfuncPublish(){
         if (timer <= 0){
             // break something
-            timer = breakTime;
             breakTime /= breakDivisor;
+            timer = breakTime;
+            
             
             comps[(int)Random.Range(0, comps.Count)].Malfunc();          
         }        

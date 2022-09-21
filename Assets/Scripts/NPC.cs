@@ -92,7 +92,7 @@ public class NPC : MonoBehaviour
     }
 
     public float throwRadius = 3;
-    public float maxThrowForce = 160;
+    public float maxThrowForce = 0.1f;
     private float throwTimer = 0;
     List<Rigidbody> rbs = new List<Rigidbody>();
     void ThrowObject(){
@@ -115,9 +115,11 @@ public class NPC : MonoBehaviour
         }
         if (rbs.Count == 0)
             return;
-
+        Vector3 f = Random.onUnitSphere*20;
+        Debug.Log(f);
         rbs[(int)Random.Range(0, rbs.Count)].AddForce(
-            Random.onUnitSphere*Random.Range(0, maxThrowForce), ForceMode.Impulse);
+            //Random.onUnitSphere*Random.Range(0, maxThrowForce), ForceMode.Impulse);
+            f, ForceMode.Impulse);
     }
 }
 
