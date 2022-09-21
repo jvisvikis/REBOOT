@@ -43,6 +43,7 @@ public class NPC : MonoBehaviour
         emoteCanvas.SetActive(false);
         homeLoc = transform.position;
         nma = GetComponent<NavMeshAgent>();
+        walkingSFX = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -53,7 +54,11 @@ public class NPC : MonoBehaviour
             case NPCState.Focusing:
                 // state for NPC at desk working
                 emoteCanvas.SetActive(false);
-                walkingSFX.Stop();
+                if(walkingSFX.isPlaying)
+                {
+                    walkingSFX.Stop();
+                }
+                
                 // if youre not at home, go home
                 if ((homeLoc - transform.position).magnitude > 1) {
                     nma.SetDestination(homeLoc);

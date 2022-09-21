@@ -16,7 +16,8 @@ public class Use : MonoBehaviour
         if (Physics.Raycast(Camera.main.transform.position, dir,  out hit, useDist, layers))
         {
             Interactable inter = hit.collider.gameObject.GetComponent<Interactable>();
-            if (inter != null) {
+            
+            if (inter != null && inter.isActive()) {
                 UIManager.manager.use.SetActive(true);
                 if (Input.GetButtonDown("Fire1")) {
                     inter.behaviour();

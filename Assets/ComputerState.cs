@@ -127,7 +127,16 @@ public class ComputerState : Interactable
     }
 
     public void Malfunc(){
-        state = PCState.Malfunc;
+        if(state != PCState.Broken)
+        {
+            state = PCState.Malfunc;
+        }
+        
+    }
+
+    public override bool isActive()
+    {
+        return state == PCState.Malfunc;
     }
 
 }
