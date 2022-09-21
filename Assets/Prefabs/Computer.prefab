@@ -379,8 +379,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  Indicator: {fileID: 7281697734011291275}
   timerCD: 0.2
+  Indicator: {fileID: 7281697734011291275}
 --- !u!82 &1242139879713215694
 AudioSource:
   m_ObjectHideFlags: 0

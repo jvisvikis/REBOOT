@@ -52,6 +52,12 @@ public class ComputerState : Interactable
             break;
 
             case PCState.Malfunc:
+
+                if(!malFuncSFX.isPlaying)
+                {
+                    malFuncSFX.Play();
+                }
+
                 if(timer <= 0)
                 {
                     canvasState = !canvasState;
@@ -59,6 +65,7 @@ public class ComputerState : Interactable
                 }
                 timer -= Time.deltaTime;
                 Indicator.gameObject.SetActive(canvasState);
+
             break;
 
             case PCState.Working:
