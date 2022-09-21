@@ -53,8 +53,15 @@ public class ComputerState : Interactable
 
                 if(Input.GetKeyDown(KeyCode.Escape))
                 {
+                    iField.text = "";
+                    FindObjectOfType<FPC>().GetComponent<FPC>().enabled = true;
+                    player.SetRebooting(false);
                     UIManager.manager.screenPanel.SetActive(false);
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                    malFuncSFX.Stop();
                     UIManager.manager.reticle.SetActive(true);
+                    state = PCState.Malfunc;
                 }
             break;
 
@@ -108,7 +115,6 @@ public class ComputerState : Interactable
         UIManager.manager.screenPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        state = PCState.Working;
         malFuncSFX.Stop();
         UIManager.manager.reticle.SetActive(true);
     }

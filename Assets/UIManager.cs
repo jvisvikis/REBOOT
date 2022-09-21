@@ -14,8 +14,11 @@ public class UIManager : MonoBehaviour
     private List<ComputerState> comps;
 
     public List<AudioClip> backgroundMusic;
+    private int musicIdx;
     public GameObject use;
     public GameObject reticle;
+
+    public AudioSource backingTrack;
 
     // Start is called before the first frame update
     void Awake()
@@ -26,7 +29,7 @@ public class UIManager : MonoBehaviour
     }
 
     void Start(){
-        
+        backingTrack.AudioClip = backgroundMusic[0];
     }
 
     // Update is called once per frame
