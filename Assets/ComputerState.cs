@@ -35,6 +35,7 @@ public class ComputerState : Interactable
         {
            passcode += Random.Range(0,10);
         }
+        Debug.Log($"/{passcode}/");
         UIManager.manager.MalfuncSubscribe(this);
        
     }

@@ -30,7 +30,7 @@ public class Vision : MonoBehaviour
         {
             if (hit.collider.gameObject.layer == 3) {
                 Debug.DrawRay(visionOrigin.position, dir * raycastDist, Color.yellow);
-                Debug.Log("hit " + hit.collider.gameObject.layer);
+                // Debug.Log("hit " + hit.collider.gameObject.layer);
             }
         }
     }
