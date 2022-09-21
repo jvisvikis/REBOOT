@@ -31,7 +31,7 @@ public class ComputerState : Interactable
         passcodeTXT = UIManager.manager.passcodeTXT;
         passcode = "";
         malFuncSFX = GetComponent<AudioSource>();
-        for(int i = 0; i<8; i++)
+        for(int i = 0; i<5; i++)
         {
            passcode += Random.Range(0,10);
         }
@@ -95,6 +95,7 @@ public class ComputerState : Interactable
         {
             return;
         }
+        iField.text = "";
         FindObjectOfType<FPC>().GetComponent<FPC>().enabled = true;
         player.SetRebooting(false);
         state = PCState.Working;
