@@ -16,5 +16,6 @@ public class Billboard : MonoBehaviour
     {
         if (cam != null)
             transform.rotation = cam.transform.rotation;
+
     }
 }

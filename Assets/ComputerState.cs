@@ -7,12 +7,18 @@ using TMPro;
 public class ComputerState : Interactable
 {
     
-    private PCState state = PCState.Working;
+    public PCState state = PCState.Working;
     private TMP_InputField iField;
     private Text passcodeTXT;
     private Walk player;
     private ComputerState computer;
     private string passcode;
+    public Canvas Indicator;
+
+    //flashing effect timers
+    public float timerCD;
+    private float timer;
+    private bool canvasState;
 
     // Start is called before the first frame update
     void Start()
@@ -32,13 +38,25 @@ public class ComputerState : Interactable
     {
         switch (state) {
             case PCState.Rebooting:
+                Indicator.gameObject.SetActive(false);
                 if(Input.GetKeyDown(KeyCode.Return))
                 {
                     EndRebootSequence();
                 }
             break;
 
+            case PCState.Malfunc:
+                if(timer <= 0)
+                {
+                    canvasState = !canvasState;
+                    timer = timerCD;
+                }
+                timer -= Time.deltaTime;
+                Indicator.gameObject.SetActive(canvasState);
+            break;
+
             case PCState.Working:
+                Indicator.gameObject.SetActive(false);
                 float r = Random.Range(0, 1000);
                 if (r < Time.deltaTime)
                     state = PCState.Broken;
@@ -78,8 +96,7 @@ public class ComputerState : Interactable
         if(state == PCState.Malfunc)
         {
             StartRebootSequence();
-        }
-        
+        }        
     }
 
 }
