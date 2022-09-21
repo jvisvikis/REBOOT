@@ -19,6 +19,9 @@ public class UIManager : MonoBehaviour
     public GameObject use;
     public GameObject reticle;
     public GameObject gameOverPanel;
+    public GameObject brokenPCPanel;
+
+    public List<Image> lights;
 
     private float trackTimer;
     public float trackCD;
@@ -68,7 +71,6 @@ public class UIManager : MonoBehaviour
 
         if (brokenPCs>=3)
         {
-            Debug.Log("go");
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             FindObjectOfType<FPC>().GetComponent<FPC>().enabled = false;
@@ -101,6 +103,7 @@ public class UIManager : MonoBehaviour
 
     public void ComputerBreak()
     {
+        lights[brokenPCs].color = new Color32(255,0,0,255);
         brokenPCs++;
     }
 
