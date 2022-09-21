@@ -24,7 +24,7 @@ public class NPC : MonoBehaviour
     public int mood = 0;
 
     public TextMeshProUGUI text;
-    public GameObject image;
+    public GameObject emoteCanvas;
 
     public NPCState state = NPCState.Focusing;
 
@@ -36,7 +36,7 @@ public class NPC : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        image.SetActive(false);
+        emoteCanvas.SetActive(false);
         homeLoc = transform.position;
         nma = GetComponent<NavMeshAgent>();
     }
@@ -48,6 +48,7 @@ public class NPC : MonoBehaviour
 
             case NPCState.Focusing:
                 // state for NPC at desk working
+                emoteCanvas.SetActive(false);
 
                 // if youre not at home, go home
                 if ((homeLoc - transform.position).magnitude > 1) {
@@ -72,6 +73,7 @@ public class NPC : MonoBehaviour
             break;
 
             case NPCState.Wandering:
+                emoteCanvas.SetActive(true);
                 // state for NPC wandering
                 // do some wandering?
                 ThrowObject();
@@ -85,7 +87,7 @@ public class NPC : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos(){
+    void OnDrawGizmosSelected(){
         Gizmos.DrawWireSphere(head.position, throwRadius);
     }
 
