@@ -74,6 +74,7 @@ public class NPC : MonoBehaviour
             case NPCState.Wandering:
                 // state for NPC wandering
                 // do some wandering?
+                ThrowObject();
                 timer -= Time.deltaTime;
                 if (timer <= 0) {
                     
