@@ -42,9 +42,6 @@ public class NPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< Updated upstream
-       
-=======
         switch (state) {
 
             case NPCState.Focusing:
@@ -81,7 +78,6 @@ public class NPC : MonoBehaviour
 
             break;
         }
->>>>>>> Stashed changes
     }
 
     void f(){

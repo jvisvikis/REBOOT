@@ -7,13 +7,12 @@ using TMPro;
 public class ComputerState : Interactable
 {
     
-    public PCState state = PCState.Working;
+    private PCState state = PCState.Working;
     private TMP_InputField iField;
     private Text passcodeTXT;
     private Walk player;
     private ComputerState computer;
     private string passcode;
-    private bool rebooting;
 
     // Start is called before the first frame update
     void Start()
@@ -31,10 +30,21 @@ public class ComputerState : Interactable
     // Update is called once per frame
     void Update()
     {
-        if(rebooting && Input.GetKeyDown(KeyCode.Return))
-        {
-            EndRebootSequence();
+        switch (state) {
+            case PCState.Rebooting:
+                if(Input.GetKeyDown(KeyCode.Return))
+                {
+                    EndRebootSequence();
+                }
+            break;
+
+            case PCState.Working:
+                float r = Random.Range(0, 1000);
+                if (r < Time.deltaTime)
+                    state = PCState.Broken;
+            break;
         }
+        
     }
 
     public void StartRebootSequence()
@@ -44,8 +54,8 @@ public class ComputerState : Interactable
         passcodeTXT.text = passcode;
         player.SetRebooting(true);
         FindObjectOfType<FPC>().GetComponent<FPC>().enabled = false;
-        rebooting = true;
         Cursor.lockState = CursorLockMode.None;
+        state = PCState.Rebooting;
         Cursor.visible = true;
     }
 
@@ -57,11 +67,11 @@ public class ComputerState : Interactable
         }
         FindObjectOfType<FPC>().GetComponent<FPC>().enabled = true;
         player.SetRebooting(false);
-        rebooting = false;
         state = PCState.Working;
         UIManager.manager.screenPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        state = PCState.Working;
     }
 
     public override void behaviour(){
@@ -77,5 +87,7 @@ public class ComputerState : Interactable
 public enum PCState{
         Working,
         Malfunc,
+
+        Rebooting,
         Broken
 }
