@@ -13,12 +13,15 @@ public class ComputerState : Interactable
     private Walk player;
     private ComputerState computer;
     private string passcode;
-    public Canvas Indicator;
 
-    //flashing effect timers
+    //sfx variables
+    private AudioSource malFuncSFX;
+
+    //flashing effect variables
     public float timerCD;
     private float timer;
     private bool canvasState;
+    public Canvas Indicator;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +30,7 @@ public class ComputerState : Interactable
         iField = UIManager.manager.iField;
         passcodeTXT = UIManager.manager.passcodeTXT;
         passcode = "";
+        malFuncSFX = GetComponent<AudioSource>();
         for(int i = 0; i<8; i++)
         {
            passcode += Random.Range(0,10);
@@ -91,6 +95,7 @@ public class ComputerState : Interactable
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         state = PCState.Working;
+        malFuncSFX.Stop();
     }
 
     public override void behaviour(){
