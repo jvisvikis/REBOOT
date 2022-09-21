@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     public GameObject reticle;
     public GameObject gameOverPanel;
     public GameObject brokenPCPanel;
+    public Text scoreTxt;
 
     public List<Image> lights;
 
@@ -33,6 +34,15 @@ public class UIManager : MonoBehaviour
         get
         {
             return brokenPCs;
+        }
+    }
+
+    private int score;
+    public int Score
+    {
+        get
+        {
+            return score;
         }
     }
     
@@ -75,6 +85,7 @@ public class UIManager : MonoBehaviour
             Cursor.visible = true;
             FindObjectOfType<FPC>().GetComponent<FPC>().enabled = false;
             gameOverPanel.SetActive(true);
+            scoreTxt.text = "Computers Rebooted: " + score;
         }
     }
 
@@ -110,6 +121,12 @@ public class UIManager : MonoBehaviour
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void IncrementScore()
+    {
+        score++;
+        Debug.Log(score);
     }
 
     public void Quit(){

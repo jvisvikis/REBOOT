@@ -1057,6 +1057,7 @@ MonoBehaviour:
   reticle: {fileID: 3296417141391213537}
   gameOverPanel: {fileID: 931713618216840924}
   brokenPCPanel: {fileID: 1342561866768314374}
+  scoreTxt: {fileID: 2165709057578131907}
   lights:
   - {fileID: 8568630535252655274}
   - {fileID: 7560642675733979181}

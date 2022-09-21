@@ -123,6 +123,8 @@ public class ComputerState : Interactable
     {
         if(!iField.text.Contains(passcode))
         {
+            iField.Select();
+            iField.ActivateInputField();
             return;
         }
         breakdownTimer = breakdownTimerCD;
@@ -131,6 +133,7 @@ public class ComputerState : Interactable
         player.SetRebooting(false);
         state = PCState.Working;
         UIManager.manager.screenPanel.SetActive(false);
+        UIManager.manager.IncrementScore();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         malFuncSFX.Stop();
@@ -145,7 +148,7 @@ public class ComputerState : Interactable
     }
 
     public void Malfunc(){
-        if(state != PCState.Broken)
+        if(state == PCState.Working)
         {
             state = PCState.Malfunc;
         }
