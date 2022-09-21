@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
 
     private List<ComputerState> comps;
 
+    public List<AudioClip> backgroundMusic;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -52,10 +54,7 @@ public class UIManager : MonoBehaviour
             timer = breakTime;
             breakTime /= breakDivisor;
             
-            comps[(int)Random.Range(0, comps.Count)].Malfunc();
-            
-            
-        }
-        
+            comps[(int)Random.Range(0, comps.Count)].Malfunc();          
+        }        
     } 
 }
