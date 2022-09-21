@@ -8,9 +8,8 @@ public class ComputerState : Interactable
 {
     
     public PCState state = PCState.Working;
-    private GameObject screenPanel;
-    private Text passcodeTXT;
     private TMP_InputField iField;
+    private Text passcodeTXT;
     private Walk player;
     private ComputerState computer;
     private string passcode;
@@ -19,30 +18,33 @@ public class ComputerState : Interactable
     // Start is called before the first frame update
     void Start()
     {
-        
+        iField = UIManager.manager.iField;
+        passcodeTXT = UIManager.manager.passcodeTXT;
+        passcode = "";
+        for(int i = 0; i<8; i++)
+        {
+           passcode += Random.Range(0,10);
+        } 
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(rebooting && Input.GetKeyDown(KeyCode.Return))
+        {
+            EndRebootSequence();
+        }
     }
 
     public void StartRebootSequence()
     {
-        screenPanel = GameObject.Find("InputPasscodePanel");
-        computer = GetComponent<ComputerState>();
-        Debug.Log(screenPanel);
-        passcodeTXT = notepad.np.gameObject.GetComponent<Text>();
-        iField = GameObject.Find("InputField (TMP)").GetComponent<TMP_InputField>();
+        UIManager.manager.screenPanel.SetActive(true);
         player = FindObjectOfType<Walk>().GetComponent<Walk>();
-        passcode = "11111111";
         passcodeTXT.text = passcode;
-        screenPanel.SetActive(false);
         player.SetRebooting(true);
-        Camera.main.GetComponent<FPC>().enabled = false;
+        FindObjectOfType<FPC>().GetComponent<FPC>().enabled = false;
         rebooting = true;
-        screenPanel.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
@@ -53,16 +55,21 @@ public class ComputerState : Interactable
         {
             return;
         }
-        Camera.main.GetComponent<FPC>().enabled = true;
+        FindObjectOfType<FPC>().GetComponent<FPC>().enabled = true;
         player.SetRebooting(false);
         rebooting = false;
-        screenPanel.SetActive(false);
+        state = PCState.Working;
+        UIManager.manager.screenPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
     public override void behaviour(){
-        StartRebootSequence();
+        if(state == PCState.Malfunc)
+        {
+            StartRebootSequence();
+        }
+        
     }
 
 }
