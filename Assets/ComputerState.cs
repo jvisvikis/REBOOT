@@ -26,7 +26,7 @@ public class ComputerState : Interactable
     //Time Till Breakdown
     private float breakdownTimer;
     public float breakdownTimerCD;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +34,9 @@ public class ComputerState : Interactable
         passcodeTXT = UIManager.manager.passcodeTXT;
         passcode = "";
         malFuncSFX = GetComponent<AudioSource>();
+
+        breakdownTimer = breakdownTimerCD;
+
         for(int i = 0; i<5; i++)
         {
            passcode += Random.Range(0,10).ToString();
@@ -81,6 +84,14 @@ public class ComputerState : Interactable
                     canvasState = !canvasState;
                     timer = timerCD;
                 }
+
+                if(breakdownTimer <= 0)
+                {
+                    state = PCState.Broken;
+                    UIManager.manager.brokenPCs++;
+                }
+
+                breakdownTimer -= Time.deltaTime;
                 timer -= Time.deltaTime;
                 Indicator.gameObject.SetActive(canvasState);
 
@@ -114,6 +125,7 @@ public class ComputerState : Interactable
         {
             return;
         }
+        breakdownTimer = breakdownTimerCD;
         iField.text = "";
         FindObjectOfType<FPC>().GetComponent<FPC>().enabled = true;
         player.SetRebooting(false);

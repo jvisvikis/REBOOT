@@ -66,7 +66,7 @@ public class NPC : MonoBehaviour
                 }
 
                 // you must be at home, use the compouter
-                if (computer.state == PCState.Malfunc) {
+                if (computer.state == PCState.Malfunc || computer.state == PCState.Broken) {
                     state = NPCState.Wandering;
                     dest = WorldBounds.bounds.getRand();
                     dest.Set(dest.x, transform.position.y, dest.z);

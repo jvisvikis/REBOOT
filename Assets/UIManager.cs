@@ -21,6 +21,8 @@ public class UIManager : MonoBehaviour
     private float trackTimer;
     public float trackCD;
     private AudioSource backingTrack;
+
+    public int brokenPCs;
     
 
     // Start is called before the first frame update
@@ -54,6 +56,11 @@ public class UIManager : MonoBehaviour
             backingTrack.Play();
         }
         trackTimer -= Time.deltaTime;
+
+        if (brokenPCs>=3)
+        {
+            Debug.Log("GAME OVER");
+        }
     }
 
     void Reboot()
@@ -72,8 +79,7 @@ public class UIManager : MonoBehaviour
         if (timer <= 0){
             // break something
             breakTime /= breakDivisor;
-            timer = breakTime;
-            
+            timer = breakTime;            
             
             comps[(int)Random.Range(0, comps.Count)].Malfunc();          
         }        

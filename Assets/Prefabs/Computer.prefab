@@ -361,6 +361,7 @@ MonoBehaviour:
   state: 0
   timerCD: 0.2
   Indicator: {fileID: 7281697734011291275}
+  breakdownTimerCD: 60
 --- !u!82 &103137794413206751
 AudioSource:
   m_ObjectHideFlags: 0
