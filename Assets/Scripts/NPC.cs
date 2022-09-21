@@ -33,6 +33,10 @@ public class NPC : MonoBehaviour
     public float timer = 0;
     public Vector3 dest;
 
+    //Sound
+    private AudioSource walkingSFX;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +53,7 @@ public class NPC : MonoBehaviour
             case NPCState.Focusing:
                 // state for NPC at desk working
                 emoteCanvas.SetActive(false);
-
+                walkingSFX.Stop();
                 // if youre not at home, go home
                 if ((homeLoc - transform.position).magnitude > 1) {
                     nma.SetDestination(homeLoc);
@@ -76,6 +80,11 @@ public class NPC : MonoBehaviour
                 emoteCanvas.SetActive(true);
                 // state for NPC wandering
                 // do some wandering?
+                if(!walkingSFX.isPlaying)
+                {
+                    walkingSFX.Play();
+                }
+                walkingSFX.Play();
                 ThrowObject();
                 timer -= Time.deltaTime;
                 if (timer <= 0) {
