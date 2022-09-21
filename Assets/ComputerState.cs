@@ -23,6 +23,7 @@ public class ComputerState : Interactable
     // Start is called before the first frame update
     void Start()
     {
+        state = PCState.Working;
         iField = UIManager.manager.iField;
         passcodeTXT = UIManager.manager.passcodeTXT;
         passcode = "";

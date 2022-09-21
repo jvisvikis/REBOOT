@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 5466280630956275842}
   - component: {fileID: 4808216313513202159}
   - component: {fileID: 8078298925270280784}
+  - component: {fileID: 8797679572711027250}
+  - component: {fileID: 8917542300691069590}
   m_Layer: 0
   m_Name: CubicleWall
   m_TagString: Untagged
@@ -378,3 +380,30 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: -0.75000006, z: -0.5}
   m_TimeToStationary: 0.5
+--- !u!138 &8797679572711027250
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5466280630956275843}
+  m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_BreakForce: 150
+  m_BreakTorque: Infinity
+  m_EnableCollision: 1
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
+--- !u!114 &8917542300691069590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5466280630956275843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65a920f70971694bb846895bb04b452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

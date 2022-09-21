@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 1979301832522680437}
   - component: {fileID: 2408543229248965480}
   - component: {fileID: 2860606897708442068}
+  - component: {fileID: 3837572953225356884}
+  - component: {fileID: 631803938817952926}
   m_Layer: 0
   m_Name: OpenCubicleWall
   m_TagString: Untagged
@@ -378,3 +380,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!138 &3837572953225356884
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979301832522680436}
+  m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_BreakForce: 150
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
+--- !u!114 &631803938817952926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979301832522680436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65a920f70971694bb846895bb04b452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
