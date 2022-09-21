@@ -45,6 +45,7 @@ public class ComputerState : Interactable
         switch (state) {
             case PCState.Rebooting:
                 Indicator.gameObject.SetActive(false);
+                UIManager.manager.reticle.SetActive(false);
                 if(Input.GetKeyDown(KeyCode.Return))
                 {
                     EndRebootSequence();
@@ -53,6 +54,7 @@ public class ComputerState : Interactable
                 if(Input.GetKeyDown(KeyCode.Escape))
                 {
                     UIManager.manager.screenPanel.SetActive(false);
+                    UIManager.manager.reticle.SetActive(true);
                 }
             break;
 
@@ -95,7 +97,7 @@ public class ComputerState : Interactable
 
     public void EndRebootSequence()
     {
-        if(!iField.text.Equals(passcode))
+        if(!iField.text.Contains(passcode))
         {
             return;
         }
@@ -108,6 +110,7 @@ public class ComputerState : Interactable
         Cursor.visible = false;
         state = PCState.Working;
         malFuncSFX.Stop();
+        UIManager.manager.reticle.SetActive(true);
     }
 
     public override void behaviour(){

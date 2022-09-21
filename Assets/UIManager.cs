@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
 
     public List<AudioClip> backgroundMusic;
     public GameObject use;
+    public GameObject reticle;
 
     // Start is called before the first frame update
     void Awake()
