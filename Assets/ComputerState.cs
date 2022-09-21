@@ -100,6 +100,8 @@ public class ComputerState : Interactable
         Cursor.lockState = CursorLockMode.None;
         state = PCState.Rebooting;
         Cursor.visible = true;
+        iField.Select();
+        iField.ActivateInputField();
     }
 
     public void EndRebootSequence()

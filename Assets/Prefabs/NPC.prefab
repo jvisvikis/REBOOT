@@ -195,7 +195,7 @@ MonoBehaviour:
   timer: 0
   dest: {x: 0, y: 0, z: 0}
   throwRadius: 3
-  maxThrowForce: 160
+  maxThrowForce: 0.1
 --- !u!195 &2323107973875161329
 NavMeshAgent:
   m_ObjectHideFlags: 0

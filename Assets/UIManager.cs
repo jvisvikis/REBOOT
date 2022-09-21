@@ -30,6 +30,7 @@ public class UIManager : MonoBehaviour
         screenPanel.SetActive(false);
         comps = new List<ComputerState>();
         backingTrack = GetComponent<AudioSource>();
+       
     }
 
     void Start(){
