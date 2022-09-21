@@ -18,7 +18,10 @@ public class UIManager : MonoBehaviour
     public GameObject use;
     public GameObject reticle;
 
-    public AudioSource backingTrack;
+    private float trackTimer;
+    public float trackCD;
+    private AudioSource backingTrack;
+    
 
     // Start is called before the first frame update
     void Awake()
@@ -26,10 +29,13 @@ public class UIManager : MonoBehaviour
         manager = this;
         screenPanel.SetActive(false);
         comps = new List<ComputerState>();
+        backingTrack = GetComponent<AudioSource>();
     }
 
     void Start(){
-        backingTrack.AudioClip = backgroundMusic[0];
+        trackTimer = trackCD;
+        backingTrack.clip = backgroundMusic[musicIdx];
+        backingTrack.Play();
     }
 
     // Update is called once per frame
@@ -37,8 +43,16 @@ public class UIManager : MonoBehaviour
     {
         if (timer > 0)
             timer-=Time.deltaTime;
-
         MalfuncPublish();
+
+        if(trackTimer < 0 && musicIdx != backgroundMusic.Count-1)
+        {
+            trackTimer = trackCD;
+            musicIdx++;
+            backingTrack.clip = backgroundMusic[musicIdx];
+            backingTrack.Play();
+        }
+        trackTimer -= Time.deltaTime;
     }
 
     void Reboot()
