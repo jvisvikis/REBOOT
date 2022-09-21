@@ -49,6 +49,11 @@ public class ComputerState : Interactable
                 {
                     EndRebootSequence();
                 }
+
+                if(Input.GetKeyDown(KeyCode.Escape))
+                {
+                    UIManager.manager.screenPanel.SetActive(false);
+                }
             break;
 
             case PCState.Malfunc:
@@ -69,8 +74,7 @@ public class ComputerState : Interactable
             break;
 
             case PCState.Working:
-                Indicator.gameObject.SetActive(false);
-                
+                Indicator.gameObject.SetActive(false);               
                     
             break;
         }
