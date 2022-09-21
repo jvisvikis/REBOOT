@@ -18,10 +18,11 @@ public class UIManager : MonoBehaviour
     {
         manager = this;
         screenPanel.SetActive(false);
+        comps = new List<ComputerState>();
     }
 
     void Start(){
-        comps = new List<ComputerState>();
+        
     }
 
     // Update is called once per frame
