@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c846a4933edc7489b3173679672495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 1
+  state: 0
   Indicator: {fileID: 7281697734011291275}
   timerCD: 0.2
 --- !u!1 &3386912350411709785

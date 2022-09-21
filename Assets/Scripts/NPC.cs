@@ -25,11 +25,12 @@ public class NPC : MonoBehaviour
     public TextMeshProUGUI text;
     public GameObject image;
 
-    private NPCState state = NPCState.Focusing;
+    public NPCState state = NPCState.Focusing;
 
     private NavMeshAgent nma;
 
     public float timer = 0;
+    public Vector3 dest;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +57,9 @@ public class NPC : MonoBehaviour
                 // you must be at home, use the compouter
                 if (computer.state == PCState.Malfunc) {
                     state = NPCState.Wandering;
-                    nma.SetDestination(WorldBounds.bounds.getRand());
+                    dest = WorldBounds.bounds.getRand();
+                    dest.Set(dest.x, transform.position.y, dest.z);
+                    nma.SetDestination(dest);
                     timer = Random.Range(20, 40);
                 } else if (computer.state == PCState.Broken) {
                     // if the computer breaks while the npc is using it

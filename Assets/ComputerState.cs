@@ -30,7 +30,8 @@ public class ComputerState : Interactable
         for(int i = 0; i<8; i++)
         {
            passcode += Random.Range(0,10);
-        } 
+        }
+        UIManager.manager.MalfuncSubscribe(this);
        
     }
 
@@ -58,9 +59,8 @@ public class ComputerState : Interactable
 
             case PCState.Working:
                 Indicator.gameObject.SetActive(false);
-                float r = Random.Range(0, 1000);
-                if (r < Time.deltaTime)
-                    state = PCState.Broken;
+                
+                    
             break;
         }
         
@@ -98,6 +98,10 @@ public class ComputerState : Interactable
         {
             StartRebootSequence();
         }        
+    }
+
+    public void Malfunc(){
+        state = PCState.Malfunc;
     }
 
 }
