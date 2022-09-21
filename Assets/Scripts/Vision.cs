@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine.AI;
 
 public class Vision : MonoBehaviour
 {
     
     public Transform visionOrigin;
     public float raycastDist = 20;
-    public NavMeshAgent nma;
     
     void Start()
     {
@@ -19,7 +17,7 @@ public class Vision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        nma.SetDestination(Camera.main.transform.position);
+        
     }
 
     void OnTriggerStay(Collider c) {
