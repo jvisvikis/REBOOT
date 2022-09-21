@@ -197,7 +197,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 48914240dc4aca74ea053739a2a6795a, type: 3}
   use: {fileID: 7631617437379537616}
   reticle: {fileID: 3296417141391213537}
-  trackCD: 0
+  trackCD: 120
   breakTime: 20
   breakDivisor: 1.2
 --- !u!114 &6527692832970359114

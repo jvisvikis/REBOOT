@@ -23,6 +23,10 @@ public class ComputerState : Interactable
     private bool canvasState;
     public Canvas Indicator;
 
+    //Time Till Breakdown
+    private float breakdownTimer;
+    public float breakdownTimerCD;
+    
     // Start is called before the first frame update
     void Start()
     {
