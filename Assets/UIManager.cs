@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -17,12 +18,20 @@ public class UIManager : MonoBehaviour
     private int musicIdx;
     public GameObject use;
     public GameObject reticle;
+    public GameObject gameOverPanel;
 
     private float trackTimer;
     public float trackCD;
     private AudioSource backingTrack;
 
-    public int brokenPCs;
+    private int brokenPCs;
+    public int BrokenPCs
+    {
+        get
+        {
+            return brokenPCs;
+        }
+    }
     
 
     // Start is called before the first frame update
@@ -59,7 +68,11 @@ public class UIManager : MonoBehaviour
 
         if (brokenPCs>=3)
         {
-            Debug.Log("GAME OVER");
+            Debug.Log("go");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            FindObjectOfType<FPC>().GetComponent<FPC>().enabled = false;
+            gameOverPanel.SetActive(true);
         }
     }
 
@@ -75,6 +88,7 @@ public class UIManager : MonoBehaviour
     public float breakTime = 10;
     private float timer = 5;
     public float breakDivisor = 1.2f;
+
     private void MalfuncPublish(){
         if (timer <= 0){
             // break something
@@ -83,5 +97,19 @@ public class UIManager : MonoBehaviour
             
             comps[(int)Random.Range(0, comps.Count)].Malfunc();          
         }        
+    }
+
+    public void ComputerBreak()
+    {
+        brokenPCs++;
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Quit(){
+        Application.Quit();
     } 
 }

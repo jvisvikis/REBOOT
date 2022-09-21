@@ -88,7 +88,7 @@ public class ComputerState : Interactable
                 if(breakdownTimer <= 0)
                 {
                     state = PCState.Broken;
-                    UIManager.manager.brokenPCs++;
+                    UIManager.manager.ComputerBreak();
                 }
 
                 breakdownTimer -= Time.deltaTime;

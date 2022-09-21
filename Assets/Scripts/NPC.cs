@@ -130,7 +130,6 @@ public class NPC : MonoBehaviour
         if (rbs.Count == 0)
             return;
         Vector3 f = Random.onUnitSphere*20;
-        Debug.Log(f);
         rbs[(int)Random.Range(0, rbs.Count)].AddForce(
             //Random.onUnitSphere*Random.Range(0, maxThrowForce), ForceMode.Impulse);
             f, ForceMode.Impulse);
