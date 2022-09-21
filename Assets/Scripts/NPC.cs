@@ -15,6 +15,7 @@ public class NPC : MonoBehaviour
 
     private Vector3 homeLoc;
     public ComputerState computer;
+    public Transform head;
 
     // mood is a value representing the npc status 
     // 0 is neural, 
@@ -83,21 +84,37 @@ public class NPC : MonoBehaviour
         }
     }
 
-    void f(){
-        switch (computer.state) {
+    void OnDrawGizmos(){
+        Gizmos.DrawWireSphere(head.position, throwRadius);
+    }
 
-            case PCState.Working:
+    public float throwRadius = 3;
+    public float maxThrowForce = 160;
+    private float throwTimer = 0;
+    List<Rigidbody> rbs = new List<Rigidbody>();
+    void ThrowObject(){
 
-            break;
-
-            case PCState.Broken:
-            
-            break;
-
-            case PCState.Malfunc:
-            
-            break;
+        if (throwTimer > 0){
+            throwTimer -= Time.deltaTime;
+            return;
         }
+        throwTimer = 10;
+
+
+        rbs.Clear();
+        Collider[] col = Physics.OverlapSphere(head.position, throwRadius);
+        foreach (Collider c in col){
+            Rigidbody rb = c.GetComponentInParent<Rigidbody>();
+            if (rb != null) {
+                rbs.Add(rb);
+            }
+
+        }
+        if (rbs.Count == 0)
+            return;
+
+        rbs[(int)Random.Range(0, rbs.Count)].AddForce(
+            Random.onUnitSphere*Random.Range(0, maxThrowForce), ForceMode.Impulse);
     }
 }
 

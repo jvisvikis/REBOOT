@@ -185,9 +185,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a83675c3bce6494eb5645d4141c1a8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  computer: {fileID: 0}
+  head: {fileID: 3946236142050387125}
   mood: 0
   text: {fileID: 6961499606476268740}
   image: {fileID: 6276483469902146194}
+  state: 1
+  timer: 0
+  dest: {x: 0, y: 0, z: 0}
+  throwRadius: 3
 --- !u!195 &2323107973875161329
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -803,7 +809,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visionOrigin: {fileID: 3946236142050387125}
   raycastDist: 20
-  nma: {fileID: 2323107973875161329}
 --- !u!1 &5873626824051964470
 GameObject:
   m_ObjectHideFlags: 0
