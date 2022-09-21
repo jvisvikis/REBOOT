@@ -30,7 +30,7 @@ public class ComputerState : Interactable
         passcodeTXT = UIManager.manager.passcodeTXT;
         passcode = "";
         malFuncSFX = GetComponent<AudioSource>();
-        for(int i = 0; i<8; i++)
+        for(int i = 0; i<5; i++)
         {
            passcode += Random.Range(0,10).ToString();
         }
@@ -48,6 +48,11 @@ public class ComputerState : Interactable
                 if(Input.GetKeyDown(KeyCode.Return))
                 {
                     EndRebootSequence();
+                }
+
+                if(Input.GetKeyDown(KeyCode.Escape))
+                {
+                    UIManager.manager.screenPanel.SetActive(false);
                 }
             break;
 
@@ -69,8 +74,7 @@ public class ComputerState : Interactable
             break;
 
             case PCState.Working:
-                Indicator.gameObject.SetActive(false);
-                
+                Indicator.gameObject.SetActive(false);               
                     
             break;
         }
@@ -95,6 +99,7 @@ public class ComputerState : Interactable
         {
             return;
         }
+        iField.text = "";
         FindObjectOfType<FPC>().GetComponent<FPC>().enabled = true;
         player.SetRebooting(false);
         state = PCState.Working;
