@@ -65,7 +65,7 @@ public class ComputerState : Interactable
                     EndRebootSequence();
                 }
 
-                if(Input.GetKeyDown(KeyCode.Escape))
+                if(Input.GetKeyDown(KeyCode.X))
                 {
                     iField.text = "";
                     FindObjectOfType<FPC>().GetComponent<FPC>().enabled = true;
