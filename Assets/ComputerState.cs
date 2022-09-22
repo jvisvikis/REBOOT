@@ -14,6 +14,9 @@ public class ComputerState : Interactable
     private ComputerState computer;
     private string passcode;
 
+    //Particle effects
+    public ParticleSystem fire;
+
     //sfx variables
     private AudioSource malFuncSFX;
 
@@ -73,6 +76,11 @@ public class ComputerState : Interactable
             break;
 
             case PCState.Malfunc:
+                
+                if(!fire.isPlaying)
+                {
+                    fire.Play();
+                }
 
                 if(!malFuncSFX.isPlaying)
                 {
@@ -98,6 +106,10 @@ public class ComputerState : Interactable
             break;
 
             case PCState.Working:
+                if(fire.isPlaying)
+                    {
+                        fire.Stop();
+                    }
                 Indicator.gameObject.SetActive(false);               
                     
             break;
