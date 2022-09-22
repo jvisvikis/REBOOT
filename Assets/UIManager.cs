@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject brokenPCPanel;
     public Text scoreTxt;
+    public Text highscoreTxt;
 
     public List<Image> lights;
 
@@ -50,6 +51,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        PlayerPrefs.SetInt("Highscore", 0);
         manager = this;
         screenPanel.SetActive(false);
         comps = new List<ComputerState>();
@@ -66,6 +68,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (timer > 0)
             timer-=Time.deltaTime;
         MalfuncPublish();
@@ -86,7 +89,16 @@ public class UIManager : MonoBehaviour
             FindObjectOfType<FPC>().GetComponent<FPC>().enabled = false;
             gameOverPanel.SetActive(true);
             scoreTxt.text = "Computers Rebooted: " + score;
+            if(score > PlayerPrefs.GetInt("Highscore"))
+            {
+                PlayerPrefs.SetInt("Highscore",score);
+                PlayerPrefs.Save();
+            }
+            highscoreTxt.text = "Most Computers Rebooted: " + PlayerPrefs.GetInt("Highscore");
+            
             Time.timeScale = 0;
+        }else{
+            Time.timeScale = 1;
         }
     }
 
@@ -129,8 +141,8 @@ public class UIManager : MonoBehaviour
 
     public void ReloadScene()
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
     }
 
     public void IncrementScore()
