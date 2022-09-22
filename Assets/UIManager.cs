@@ -86,6 +86,7 @@ public class UIManager : MonoBehaviour
             FindObjectOfType<FPC>().GetComponent<FPC>().enabled = false;
             gameOverPanel.SetActive(true);
             scoreTxt.text = "Computers Rebooted: " + score;
+            Time.timeScale = 0;
         }
     }
 
@@ -122,14 +123,13 @@ public class UIManager : MonoBehaviour
         {
             lights[brokenPCs].color = new Color32(255,0,0,255);
             brokenPCs++;
-        }
-        
-        
+        }      
         
     }
 
     public void ReloadScene()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

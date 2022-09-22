@@ -155,7 +155,6 @@ public class NPC : MonoBehaviour
         Collider[] col = Physics.OverlapSphere(head.position, throwRadius/2);
         foreach (Collider c in col){
             Rigidbody rb = c.GetComponentInParent<Rigidbody>();
-            Debug.Log(rb);
             if (rb != null && rb.gameObject.layer == 3) {
                 
                 Vector3 f = Random.onUnitSphere*20;
