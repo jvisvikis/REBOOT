@@ -1597,6 +1597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visionOrigin: {fileID: 3946236142050387125}
   raycastDist: 20
+  npc: {fileID: 3734297615625955349}
 --- !u!1 &5036039421035397157
 GameObject:
   m_ObjectHideFlags: 0

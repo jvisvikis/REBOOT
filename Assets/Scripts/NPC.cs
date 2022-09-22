@@ -85,8 +85,8 @@ public class NPC : MonoBehaviour
             break;
 
             case NPCState.Wandering:
-                emoteCanvas.SetActive(true);
                 eyebrows.SetActive(true);
+                emoteCanvas.SetActive(false);
                 // state for NPC wandering
                 // do some wandering?
                 if(!walkingSFX.isPlaying)
@@ -97,10 +97,21 @@ public class NPC : MonoBehaviour
                 ThrowObject();
                 timer -= Time.deltaTime;
                 if (timer <= 0) {
+                    if ((homeLoc - transform.position).magnitude > 1) {
+                        nma.SetDestination(homeLoc);
+                        return;
+                    }else{
+                        state = NPCState.Focusing;
+                    }
                     
-                    state = NPCState.Focusing;
                 }
 
+            break;
+
+            case NPCState.Chasing:
+                emoteCanvas.SetActive(true);
+                nma.SetDestination(FindObjectOfType<Walk>().transform.position);
+                ThrowPlayer();
             break;
         }
     }
@@ -138,11 +149,27 @@ public class NPC : MonoBehaviour
             //Random.onUnitSphere*Random.Range(0, maxThrowForce), ForceMode.Impulse);
             f, ForceMode.Impulse);
     }
+
+     void ThrowPlayer(){
+
+        Collider[] col = Physics.OverlapSphere(head.position, throwRadius/2);
+        foreach (Collider c in col){
+            Rigidbody rb = c.GetComponentInParent<Rigidbody>();
+            Debug.Log(rb);
+            if (rb != null && rb.gameObject.layer == 3) {
+                
+                Vector3 f = Random.onUnitSphere*20;
+                rb.AddForce( f, ForceMode.Impulse);
+            }
+        }
+    }
+
 }
 
 
 
 public enum NPCState {
     Wandering,
-    Focusing
+    Focusing,
+    Chasing
 }

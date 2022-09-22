@@ -8,6 +8,7 @@ public class Vision : MonoBehaviour
     
     public Transform visionOrigin;
     public float raycastDist = 20;
+    public NPC npc;
     
     void Start()
     {
@@ -28,9 +29,12 @@ public class Vision : MonoBehaviour
         int layers = Physics.DefaultRaycastLayers - 64;
         if (Physics.Raycast(visionOrigin.position, dir,  out hit, raycastDist, layers))
         {
-            if (hit.collider.gameObject.layer == 3) {
+            if (hit.collider.gameObject.layer == 3 && npc.state == NPCState.Wandering) {
                 Debug.DrawRay(visionOrigin.position, dir * raycastDist, Color.yellow);
+                npc.state = NPCState.Chasing;
                 // Debug.Log("hit " + hit.collider.gameObject.layer);
+            }else if (npc.state == NPCState.Chasing && hit.collider.gameObject.layer != 3){
+                npc.state = NPCState.Wandering;
             }
         }
     }
