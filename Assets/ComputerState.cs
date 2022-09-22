@@ -30,6 +30,10 @@ public class ComputerState : Interactable
     private float breakdownTimer;
     public float breakdownTimerCD;
 
+    //Grace Timer
+    private float graceTimer;
+    public float graceCD;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -106,6 +110,7 @@ public class ComputerState : Interactable
             break;
 
             case PCState.Working:
+            graceTimer -= Time.deltaTime;
                 if(fire.isPlaying)
                     {
                         fire.Stop();
@@ -150,6 +155,7 @@ public class ComputerState : Interactable
         Cursor.visible = false;
         malFuncSFX.Stop();
         UIManager.manager.reticle.SetActive(true);
+        graceTimer = graceCD;
     }
 
     public override void behaviour(){
@@ -160,7 +166,7 @@ public class ComputerState : Interactable
     }
 
     public void Malfunc(){
-        if(state == PCState.Working)
+        if(state == PCState.Working && graceTimer<=0)
         {
             state = PCState.Malfunc;
         }

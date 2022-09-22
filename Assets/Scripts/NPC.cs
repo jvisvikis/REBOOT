@@ -25,6 +25,7 @@ public class NPC : MonoBehaviour
 
     public TextMeshProUGUI text;
     public GameObject emoteCanvas;
+    public GameObject eyebrows;
 
     public NPCState state = NPCState.Focusing;
 
@@ -40,6 +41,7 @@ public class NPC : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        eyebrows.SetActive(false);
         emoteCanvas.SetActive(false);
         homeLoc = transform.position;
         nma = GetComponent<NavMeshAgent>();
@@ -54,6 +56,7 @@ public class NPC : MonoBehaviour
             case NPCState.Focusing:
                 // state for NPC at desk working
                 emoteCanvas.SetActive(false);
+                eyebrows.SetActive(false);
                 if(walkingSFX.isPlaying)
                 {
                     walkingSFX.Stop();
@@ -83,6 +86,7 @@ public class NPC : MonoBehaviour
 
             case NPCState.Wandering:
                 emoteCanvas.SetActive(true);
+                eyebrows.SetActive(true);
                 // state for NPC wandering
                 // do some wandering?
                 if(!walkingSFX.isPlaying)
@@ -107,7 +111,7 @@ public class NPC : MonoBehaviour
 
     public float throwRadius = 3;
     public float maxThrowForce = 0.1f;
-    private float throwTimer = 0;
+    private float throwTimer = 5;
     List<Rigidbody> rbs = new List<Rigidbody>();
     void ThrowObject(){
 
@@ -122,7 +126,7 @@ public class NPC : MonoBehaviour
         Collider[] col = Physics.OverlapSphere(head.position, throwRadius);
         foreach (Collider c in col){
             Rigidbody rb = c.GetComponentInParent<Rigidbody>();
-            if (rb != null) {
+            if (rb != null && rb.gameObject.layer != LayerMask.GetMask("Computer")) {
                 rbs.Add(rb);
             }
 

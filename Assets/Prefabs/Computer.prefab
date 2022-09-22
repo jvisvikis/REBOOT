@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6167833164441651900}
   - component: {fileID: 103137794413206751}
   - component: {fileID: 8629645175733767146}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Screen (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,6 +349,7 @@ MonoBehaviour:
   timerCD: 0.2
   Indicator: {fileID: 7281697734011291275}
   breakdownTimerCD: 60
+  graceCD: 20
 --- !u!82 &103137794413206751
 AudioSource:
   m_ObjectHideFlags: 0
@@ -361,7 +362,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8a5f81f2a6b2b9c49a156215df6dc94f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.75
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -473,7 +474,7 @@ GameObject:
   - component: {fileID: 8544193134408583673}
   - component: {fileID: 3034339766007755236}
   - component: {fileID: 2153848731995112963}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,7 +832,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5450262016313596435}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -868,7 +869,7 @@ GameObject:
   - component: {fileID: 7306596258426692174}
   - component: {fileID: 6313746821722049863}
   - component: {fileID: 772510869791963968}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: baseFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1208,7 +1209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7952873449721473306}
   - component: {fileID: 3899794662936041904}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1256,7 +1257,7 @@ GameObject:
   - component: {fileID: 501452924571562185}
   - component: {fileID: 8550959724739555147}
   - component: {fileID: 4268447113428914398}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1334,7 +1335,7 @@ GameObject:
   - component: {fileID: 7880436448185900539}
   - component: {fileID: 748676733830212764}
   - component: {fileID: 1649122060462874880}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1450,7 +1451,7 @@ GameObject:
   - component: {fileID: 1587299960886717987}
   - component: {fileID: 2215025196204171095}
   - component: {fileID: 839317946601306520}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Screen (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1811,7 +1812,7 @@ GameObject:
   - component: {fileID: 8488960347883605872}
   - component: {fileID: 2789693410343179994}
   - component: {fileID: 5822769107860465089}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2150,7 +2151,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1447805696799421111}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Computer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2186,6 +2187,10 @@ PrefabInstance:
     - target: {fileID: 1490102570131919411, guid: 6518d1a2ba3f36b4fbb5819e15a10dc7, type: 3}
       propertyPath: m_Name
       value: Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490102570131919411, guid: 6518d1a2ba3f36b4fbb5819e15a10dc7, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1490102570131919412, guid: 6518d1a2ba3f36b4fbb5819e15a10dc7, type: 3}
       propertyPath: m_RootOrder
@@ -2253,6 +2258,10 @@ PrefabInstance:
     - target: {fileID: 165950962579835989, guid: 79cd42ad3862cd44c98a11426fda3a89, type: 3}
       propertyPath: m_Name
       value: Keeb
+      objectReference: {fileID: 0}
+    - target: {fileID: 165950962579835989, guid: 79cd42ad3862cd44c98a11426fda3a89, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 262059961636158118, guid: 79cd42ad3862cd44c98a11426fda3a89, type: 3}
       propertyPath: m_Mesh

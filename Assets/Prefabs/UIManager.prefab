@@ -1062,9 +1062,9 @@ MonoBehaviour:
   - {fileID: 8568630535252655274}
   - {fileID: 7560642675733979181}
   - {fileID: 4482254172770708278}
-  trackCD: 120
+  trackCD: 60
   breakTime: 20
-  breakDivisor: 1.2
+  breakDivisor: 1.02
 --- !u!114 &6527692832970359114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1077,7 +1077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20327769de4841d4d868051fe54e959a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 55, y: 10, z: 32}
+  size: {x: 5, y: 10, z: 32}
 --- !u!82 &1924904825249831229
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1090,7 +1090,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0

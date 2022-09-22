@@ -99,13 +99,17 @@ public class UIManager : MonoBehaviour
     }
 
     public float breakTime = 10;
+    public float breakTimeCap = 3;
     private float timer = 5;
     public float breakDivisor = 1.2f;
 
     private void MalfuncPublish(){
         if (timer <= 0){
             // break something
-            breakTime /= breakDivisor;
+            if(breakTime > breakTimeCap)
+            {
+                breakTime /= breakDivisor;
+            }            
             timer = breakTime;            
             
             comps[(int)Random.Range(0, comps.Count)].Malfunc();          
@@ -114,8 +118,14 @@ public class UIManager : MonoBehaviour
 
     public void ComputerBreak()
     {
-        lights[brokenPCs].color = new Color32(255,0,0,255);
-        brokenPCs++;
+        if(brokenPCs<3)
+        {
+            lights[brokenPCs].color = new Color32(255,0,0,255);
+            brokenPCs++;
+        }
+        
+        
+        
     }
 
     public void ReloadScene()
