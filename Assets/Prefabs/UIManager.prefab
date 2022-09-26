@@ -1163,7 +1163,7 @@ MonoBehaviour:
   trackCD: 60
   breakTime: 20
   breakTimeCap: 3
-  breakDivisor: 1.2
+  breakDivisor: 1.1
 --- !u!114 &6527692832970359114
 MonoBehaviour:
   m_ObjectHideFlags: 0
